@@ -1,0 +1,22 @@
+﻿@page "/pages"
+@inject WordPressPCL.WordPressClient Client
+<h3>Pages</h3>
+<ul>
+	@if (pages != null)
+	{
+		@foreach (WordPressPCL.Models.Page currentPage in pages)
+		{
+			<li>
+				<a href="@string.Concat("/pages/", currentPage.Slug)" title="@string.Concat("Published ", currentPage.Date)">@currentPage.Title</a>
+			</li>
+		}
+	}
+</ul>
+@code {
+	IEnumerable<WordPressPCL.Models.Page> pages;
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		pages = await Client.Pages.GetAll();
+	}
+}

@@ -1,8 +1,8 @@
-﻿@page "/categories/{id}"
+﻿@page "/categories/{slug}"
 @inject WordPressPCL.WordPressClient Client
-<h3>@id</h3>
+<h3>@slug</h3>
 
 @code {
 	[Parameter]
-	public string id { get; set; }
+	public string slug { get; set; }
 }
