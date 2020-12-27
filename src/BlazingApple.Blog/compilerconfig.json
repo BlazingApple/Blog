@@ -2,5 +2,13 @@
   {
     "outputFile": "Posts/RenderPost.razor.css",
     "inputFile": "Posts/RenderPost.razor.scss"
+  },
+  {
+    "outputFile": "wwwroot/blog.css",
+    "inputFile": "wwwroot/blog.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/blog.css",
+    "inputFile": "wwwroot/css/blog.scss"
   }
 ]

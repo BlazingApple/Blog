@@ -1,9 +1,12 @@
 ﻿@if (posts != null)
 {
-	<div style="max-height: calc(100vh - 20rem); min-height: calc(100% - 2.5rem); overflow: auto;">
-		<Virtualize Items="posts.ToList()" Context="post" TItem="@WordPressPCL.Models.Post">
+	<div class="ba-blog">
+		@*<Virtualize Items="posts.ToList()" Context="post" TItem="@WordPressPCL.Models.Post">
+				<RenderPost Post="@post" />
+			</Virtualize>*@
+		@foreach(Post post in posts) {
 			<RenderPost Post="@post" />
-		</Virtualize>
+		}
 	</div>
 }
 

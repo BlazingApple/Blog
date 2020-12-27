@@ -8,6 +8,10 @@ a, .btn-link {
     color: #0366d6;
 }
 
+.main {
+    overflow-x: hidden;
+    background-color: #ebe6ed;
+}
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

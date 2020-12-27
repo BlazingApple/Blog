@@ -9,6 +9,7 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/BlazingApple/Blog</RepositoryUrl>
     <PackageIcon>BlazingApple.png</PackageIcon>
+    <Version>1.0.0.6</Version>
   </PropertyGroup>
 
   <ItemGroup>
