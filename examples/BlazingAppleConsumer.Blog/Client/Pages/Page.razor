@@ -1,7 +1,21 @@
-﻿@page "/pages/{slug}"
-<h3>@slug</h3>
+﻿@page "/pages/{slug}/{id}"
+@inject WordPressPCL.WordPressClient Client
+@if (blogPage != null)
+{
+	<h3>@blogPage.Title.Rendered</h3>
+	<p class="text-muted">@blogPage.Date</p>
+	@((MarkupString)blogPage.Content.Rendered)
+}
 
 @code {
 	[Parameter]
 	public string slug { get; set; }
+	[Parameter]
+	public string id { get; set; }
+	private WordPressPCL.Models.Page blogPage;
+
+	protected override async Task OnParametersSetAsync()
+	{
+		blogPage = await Client.Pages.GetByID(id);
+	}
 }

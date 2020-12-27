@@ -7,7 +7,7 @@
 		@foreach (WordPressPCL.Models.Page currentPage in pages)
 		{
 			<li>
-				<a href="@string.Concat("/pages/", currentPage.Slug)" title="@string.Concat("Published ", currentPage.Date)">@currentPage.Title</a>
+				<a href="@string.Concat("/pages/", currentPage.Slug, "/",currentPage.Id)" title="@string.Concat("Published ", currentPage.Date)">@currentPage.Title.Rendered</a>
 			</li>
 		}
 	}
