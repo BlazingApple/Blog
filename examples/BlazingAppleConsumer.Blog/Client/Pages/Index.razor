@@ -1,0 +1,18 @@
+﻿@page "/"
+@inject HttpClient http
+
+@if (!string.IsNullOrEmpty(markdownText))
+{
+	<StardustDL.RazorComponents.Markdown.MarkdownRenderer Value="@markdownText" />
+}
+
+@code {
+	string markdownText = "";
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		HttpResponseMessage response = await http.GetAsync("https://raw.githubusercontent.com/BlazingApple/Blog/main/README.md");
+		response.EnsureSuccessStatusCode();
+		markdownText = await response.Content.ReadAsStringAsync();
+	}
+}

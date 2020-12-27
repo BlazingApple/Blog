@@ -1,0 +1,14 @@
+﻿@if (Post != null)
+{
+	<div class="post">
+		<h3>@Post.Title.Rendered</h3>
+		<p class="text-muted font-italic">@Post.Date</p>
+		<p class="text-muted">by @Post.Author</p>
+		@((MarkupString)Post.Content.Rendered)
+	</div>
+}
+
+@code {
+	[Parameter]
+	public Post Post { get; set; }
+}

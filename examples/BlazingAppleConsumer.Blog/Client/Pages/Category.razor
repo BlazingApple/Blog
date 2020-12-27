@@ -1,0 +1,8 @@
+﻿@page "/categories/{id}"
+@inject WordPressPCL.WordPressClient Client
+<h3>@id</h3>
+
+@code {
+	[Parameter]
+	public string id { get; set; }
+}

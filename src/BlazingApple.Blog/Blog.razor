@@ -1,0 +1,20 @@
+﻿@if (posts != null)
+{
+	<div style="max-height: calc(100vh - 20rem); min-height: calc(100% - 2.5rem); overflow: auto;">
+		<Virtualize Items="posts.ToList()" Context="post" TItem="@WordPressPCL.Models.Post">
+			<RenderPost Post="@post" />
+		</Virtualize>
+	</div>
+}
+
+@code {
+	[Parameter]
+	public WordPressClient Client { get; set; }
+
+	private IEnumerable<Post> posts;
+	protected override async Task OnParametersSetAsync()
+	{
+		await base.OnParametersSetAsync();
+		posts = await Client.Posts.Get();
+	}
+}

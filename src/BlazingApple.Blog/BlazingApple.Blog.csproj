@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Description>BlazingApple is a collection of business objects and corresponding components to speed application development. BlazingApple.Survey renders survey management components and components to take a survey as well as sending the objects to a server.</Description>
+    <Authors>Taylor White</Authors>
+    <Company>BlazingApple</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/BlazingApple/Blog</RepositoryUrl>
+    <PackageIcon>BlazingApple.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+    <PackageReference Include="WordPressPCL" Version="1.8.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\BlazingApple.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+</Project>
