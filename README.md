@@ -55,7 +55,7 @@ Once the setup is complete, using the components is straightforward:
 <img alt="Survey Administration" src="https://github.com/BlazingApple/Blog/blob/main/README/2020-12-28%20Blog%20Home.png?raw=true" style="max-width:1000px;">
 
 ## Categories (Pages Looks Similar) :camera:
-<img alt="Taking a Survey" src="https://github.com/BlazingApple/Blog/blob/main/README/2020-12-28%20Categories.png.png?raw=true" style="max-width:1000px;">
+<img alt="Taking a Survey" src="https://github.com/BlazingApple/Blog/blob/main/README/2020-12-28%20Categories.png?raw=true" style="max-width:1000px;">
 
 ## Posts For a Category :camera:
 <img alt="Survey Responses" src="https://github.com/BlazingApple/Blog/blob/main/README/2020-12-28%20Individual%20Category.png?raw=true" style="max-width:1000px;">
