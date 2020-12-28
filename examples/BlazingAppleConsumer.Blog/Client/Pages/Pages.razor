@@ -1,7 +1,7 @@
 ﻿@page "/pages"
 @inject WordPressPCL.WordPressClient Client
 <h3>Pages</h3>
-<BlazingApple.Blog.Pages></BlazingApple.Blog.Pages>
+<BlazingApple.Blog.Pages Client="@Client"></BlazingApple.Blog.Pages>
 @code {
 
 	protected override async Task OnInitializedAsync()
