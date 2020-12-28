@@ -1,0 +1,29 @@
+﻿@if (posts != null && users!=null)
+{
+	@foreach (Post post in posts)
+	{
+		<RenderPost Post="@post" Author="@users.FirstOrDefault(user=>user.Id==post.Author)"></RenderPost>
+	}
+}
+@code {
+	[Parameter]
+	public string id { get; set; }
+
+	[Parameter]
+	public WordPressClient Client { get; set; }
+
+	/// <summary>
+	///	This is used to pass "up" information about the category.
+	/// </summary>
+	public Category WPCategory { get; set; }
+
+	private IEnumerable<Post> posts;
+	private IEnumerable<User> users;
+	protected override async Task OnParametersSetAsync()
+	{
+
+		await base.OnParametersSetAsync();
+		posts = await Client.Posts.GetPostsByCategory(int.Parse(id));
+		users = await Client.Users.GetAll();
+	}
+}

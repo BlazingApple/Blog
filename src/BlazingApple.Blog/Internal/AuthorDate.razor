@@ -1,0 +1,20 @@
+﻿@if (Author != null && Date != DateTime.MinValue)
+{
+	<p class="text-muted">by <a href="@Author.Link">@Author.Name</a> on @Date</p>
+}
+else if (Author != null)
+{
+	<p class="text-muted">by <a href="@Author.Link">@Author.Name</a></p>
+}
+else if (Date != DateTime.MinValue)
+{
+	<p class="text-muted">on @Date</p>
+}
+
+@code {
+	[Parameter]
+	public User Author { get; set; }
+
+	[Parameter]
+	public DateTime Date { get; set; }
+}

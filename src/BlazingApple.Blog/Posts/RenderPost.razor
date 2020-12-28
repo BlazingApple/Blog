@@ -1,9 +1,8 @@
 ﻿@if (Post != null)
 {
 	<div class="ba-post">
-		<h3>@Post.Title.Rendered</h3>
-		<p class="text-muted font-italic">@Post.Date</p>
-		<p class="text-muted">by @Post.Author</p>
+		<h3>@((MarkupString)Post.Title.Rendered)</h3>
+		<AuthorDate Author="@Author" Date="@Post.Date"/>
 		@((MarkupString)Post.Content.Rendered)
 	</div>
 }
@@ -11,4 +10,7 @@
 @code {
 	[Parameter]
 	public Post Post { get; set; }
+
+	[Parameter]
+	public User Author { get; set; }
 }

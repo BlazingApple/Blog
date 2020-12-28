@@ -1,23 +1,5 @@
 ﻿@page "/categories"
 @inject WordPressPCL.WordPressClient Client
 <h3>Categories</h3>
-<ul>
-	@if (categories != null)
-	{
-		@foreach (WordPressPCL.Models.Category category in categories)
-		{
 
-			<li>
-				<a href="@string.Concat("/categories/", category.Id, "/", category.Slug)" title="@category.Description">@category.Name</a>
-			</li>
-		}
-	}
-</ul>
-@code {
-	IEnumerable<WordPressPCL.Models.Category> categories;
-	protected override async Task OnInitializedAsync()
-	{
-		await base.OnInitializedAsync();
-		categories = await Client.Categories.GetAll();
-	}
-}
+<BlazingApple.Blog.Categories Client="@Client"></BlazingApple.Blog.Categories>

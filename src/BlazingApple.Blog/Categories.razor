@@ -1,0 +1,30 @@
+﻿@if (categories != null)
+{
+	<ul>
+		@foreach (WordPressPCL.Models.Category category in categories)
+		{
+
+			<li>
+				<a href="@string.Concat("/categories/", category.Id, "/", category.Slug)" title="@category.Description">@category.Name</a>
+			</li>
+		}
+
+	</ul>
+}
+@code {
+	[Parameter]
+	public WordPressClient Client { get; set; }
+
+	IEnumerable<WordPressPCL.Models.Category> categories;
+
+	protected override async Task OnParametersSetAsync()
+	{
+		await base.OnParametersSetAsync();
+		categories = await Client.Categories.GetAll();
+	}
+}
+
+
+@code {
+
+}

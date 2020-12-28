@@ -1,0 +1,27 @@
+﻿@if (Posts != null)
+{
+	@if (Users != null)
+	{
+		@foreach (Post post in Posts)
+		{
+			<RenderPost Post="@post" Author="@Users.FirstOrDefault(user=>user.Id==post.Author)" />
+		}
+	}
+	else
+	{
+		@foreach (Post post in Posts)
+		{
+			<RenderPost Post="@post" />
+		}
+	}
+}
+@code {
+	[Parameter]
+	public IEnumerable<Post> Posts { get; set; }
+
+	/// <summary>
+	/// The users on the site, likely authors for a post.
+	/// </summary>
+	[Parameter]
+	public IEnumerable<User> Users { get; set; }
+}

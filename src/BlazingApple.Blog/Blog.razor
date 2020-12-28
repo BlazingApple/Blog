@@ -1,11 +1,8 @@
 ﻿@if (posts != null)
 {
 	<div class="ba-blog">
-		@*<Virtualize Items="posts.ToList()" Context="post" TItem="@WordPressPCL.Models.Post">
-				<RenderPost Post="@post" />
-			</Virtualize>*@
 		@foreach(Post post in posts) {
-			<RenderPost Post="@post" />
+			<RenderPost Post="@post" Author="@users.FirstOrDefault(user=>user.Id==post.Author)" />
 		}
 	</div>
 }
@@ -15,9 +12,11 @@
 	public WordPressClient Client { get; set; }
 
 	private IEnumerable<Post> posts;
+	private IEnumerable<User> users;
 	protected override async Task OnParametersSetAsync()
 	{
 		await base.OnParametersSetAsync();
 		posts = await Client.Posts.Get();
+		users = await Client.Users.GetAll();
 	}
 }
