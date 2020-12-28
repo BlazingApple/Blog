@@ -1,12 +1,14 @@
 ﻿@page "/categories/{id}/{slug}"
 @inject WordPressPCL.WordPressClient Client
+
 <h3>@slug</h3>
-
-@foreach(Post post in posts)
+@if(posts!=null)
 {
-	<BlazingApple.Blog.Posts.RenderPost Post="@post"></BlazingApple.Blog.Posts.RenderPost>
+	@foreach(Post post in posts)
+	{
+		<BlazingApple.Blog.Posts.RenderPost Post="@post"></BlazingApple.Blog.Posts.RenderPost>
+	}
 }
-
 @code {
 	[Parameter]
 	public string slug { get; set; }
