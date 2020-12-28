@@ -11,7 +11,7 @@ BlazingApples is an open-source set of packages that aims to speed application d
 :clap: Special thanks to [wp-Net](https://github.com/wp-net) for creating the [WordPressPCL](https://github.com/wp-net/WordPressPCL) API service on which this library primarily consumes.
 
 # Demo :video_camera:
-  <img alt="Demo of BlazingApple.Survey" src="https://github.com/BlazingApple/Survey/blob/main/README/BlazingApplesDemo.gif?raw=true" style="max-width:1000px;">
+  <img alt="Demo of BlazingApple.Survey" src="https://github.com/BlazingApple/Blog/blob/main/README/BlogDemo.gif?raw=true" style="max-width:1000px;">
 
 # Installation :wrench:
 
@@ -51,12 +51,12 @@ Once the setup is complete, using the components is straightforward:
 
 - **[GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)**
 
-## Home Page :camera:
-<img alt="Survey Administration" src="https://github.com/BlazingApple/Survey/blob/main/README/SurveyAdmin.png?raw=true" style="max-width:1000px;">
+## Blog Home :camera:
+<img alt="Survey Administration" src="https://github.com/BlazingApple/Blog/blob/main/README/2020-12-28%20Blog%20Home.png?raw=true" style="max-width:1000px;">
 
-## Pages :camera:
-<img alt="Taking a Survey" src="https://github.com/BlazingApple/Survey/blob/main/README/Taking%20a%20Survey.png?raw=true" style="max-width:1000px;">
+## Categories (Pages Looks Similar) :camera:
+<img alt="Taking a Survey" src="https://github.com/BlazingApple/Blog/blob/main/README/2020-12-28%20Categories.png.png?raw=true" style="max-width:1000px;">
 
-## Categories :camera:
-<img alt="Survey Responses" src="https://github.com/BlazingApple/Survey/blob/main/README/SurveyResults.png?raw=true" style="max-width:1000px;">
+## Posts For a Category :camera:
+<img alt="Survey Responses" src="https://github.com/BlazingApple/Blog/blob/main/README/2020-12-28%20Individual%20Category.png?raw=true" style="max-width:1000px;">
 
