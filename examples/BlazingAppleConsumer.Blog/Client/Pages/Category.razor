@@ -1,8 +1,23 @@
-﻿@page "/categories/{slug}"
+﻿@page "/categories/{id}/{slug}"
 @inject WordPressPCL.WordPressClient Client
 <h3>@slug</h3>
+
+@foreach(Post post in posts)
+{
+	<BlazingApple.Blog.Posts.RenderPost Post="@post"></BlazingApple.Blog.Posts.RenderPost>
+}
 
 @code {
 	[Parameter]
 	public string slug { get; set; }
+	[Parameter]
+	public string id { get; set; }
+
+	private IEnumerable<Post> posts;
+
+	protected override async Task OnParametersSetAsync()
+	{
+		await base.OnParametersSetAsync();
+		posts = await Client.Posts.GetPostsByCategory(int.Parse(id));
+	}
 }

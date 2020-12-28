@@ -8,7 +8,7 @@
 		{
 
 			<li>
-				<a href="@string.Concat("/categories/", category.Slug)" title="@category.Description">@category.Name</a>
+				<a href="@string.Concat("/categories/", category.Id, "/", category.Slug)" title="@category.Description">@category.Name</a>
 			</li>
 		}
 	}
