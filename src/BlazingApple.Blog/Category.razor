@@ -1,9 +1,13 @@
-﻿@if (posts != null && users!=null)
+﻿@if (posts != null && users != null)
 {
 	@foreach (Post post in posts)
 	{
 		<RenderPost Post="@post" Author="@users.FirstOrDefault(user=>user.Id==post.Author)"></RenderPost>
 	}
+}
+else
+{
+	<Loading />
 }
 @code {
 	[Parameter]

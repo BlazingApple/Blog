@@ -1,8 +1,12 @@
 ﻿@if (BlogPage != null)
 {
-<h3>@((MarkupString)BlogPage.Title.Rendered)</h3>
+	<h3>@((MarkupString)BlogPage.Title.Rendered)</h3>
 	<AuthorDate Author="@Author" Date="@BlogPage.Date" />
 	@((MarkupString)BlogPage.Content.Rendered)
+}
+else
+{
+	<Loading />
 }
 
 @code {
@@ -39,7 +43,7 @@
 			BlogPage = await Client.Pages.GetByID(id);
 		}
 
-		if(Author==null && BlogPage!=null)
+		if (Author == null && BlogPage != null)
 		{
 			Author = await Client.Users.GetByID(BlogPage.Author);
 		}

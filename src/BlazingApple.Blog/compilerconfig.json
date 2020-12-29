@@ -10,5 +10,9 @@
   {
     "outputFile": "wwwroot/css/blog.css",
     "inputFile": "wwwroot/css/blog.scss"
+  },
+  {
+    "outputFile": "Internal/Loading.razor.css",
+    "inputFile": "Internal/Loading.razor.scss"
   }
 ]

@@ -1,10 +1,14 @@
-﻿@if (posts != null)
+﻿@if (posts != null && users!=null)
 {
 	<div class="ba-blog">
 		@foreach(Post post in posts) {
 			<RenderPost Post="@post" Author="@users.FirstOrDefault(user=>user.Id==post.Author)" />
 		}
 	</div>
+}
+else
+{
+	<Loading/>
 }
 
 @code {
@@ -17,6 +21,15 @@
 	{
 		await base.OnParametersSetAsync();
 		posts = await Client.Posts.Get();
+		users = await Client.Users.GetAll();
+	}
+
+	private async void getPosts()
+	{
+		posts = await Client.Posts.Get();
+	}
+	private async void getUsers()
+	{
 		users = await Client.Users.GetAll();
 	}
 }
