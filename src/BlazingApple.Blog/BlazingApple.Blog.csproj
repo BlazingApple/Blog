@@ -9,7 +9,8 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/BlazingApple/Blog</RepositoryUrl>
     <PackageIcon>BlazingApple.png</PackageIcon>
-    <Version>1.0.0.13</Version>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>1.0.1 - Cache Blog Posts For Duration of the app lifecycle.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

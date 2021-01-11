@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using WordPressPCL;
+using BlazingApple.Blog;
 namespace BlazingAppleConsumer.Blog.Client
 {
 	public class Program
@@ -20,6 +21,7 @@ namespace BlazingAppleConsumer.Blog.Client
 
 			builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 			builder.Services.AddScoped(pcl => new WordPressClient("https://old.taylorchasewhite.com/wp-json/"));
+			builder.Services.AddScoped<BlogService>();
 			builder.Services.AddMarkdownComponent();
 			await builder.Build().RunAsync();
 		}

@@ -1,4 +1,5 @@
-﻿@if (posts != null && users!=null)
+﻿@inject BlogService BlogService
+@if (posts != null && users!=null)
 {
 	<div class="ba-blog">
 		@foreach(Post post in posts) {
@@ -17,19 +18,11 @@ else
 
 	private IEnumerable<Post> posts;
 	private IEnumerable<User> users;
-	protected override async Task OnParametersSetAsync()
+	protected override async Task OnInitializedAsync()
 	{
-		await base.OnParametersSetAsync();
-		posts = await Client.Posts.Get();
-		users = await Client.Users.GetAll();
-	}
+		await base.OnInitializedAsync();
 
-	private async void getPosts()
-	{
-		posts = await Client.Posts.Get();
-	}
-	private async void getUsers()
-	{
-		users = await Client.Users.GetAll();
+		posts = await BlogService.GetPosts(Client);
+		users = await BlogService.GetUsers(Client);
 	}
 }
