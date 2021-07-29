@@ -1,15 +1,16 @@
 ﻿@inject BlogService BlogService
-@if (posts != null && users!=null)
+@if (posts != null && users != null)
 {
 	<div class="ba-blog">
-		@foreach(Post post in posts) {
+		@foreach (Post post in posts)
+		{
 			<RenderPost Post="@post" Author="@users.FirstOrDefault(user=>user.Id==post.Author)" />
 		}
 	</div>
 }
 else
 {
-	<Loading/>
+	<Loading />
 }
 
 @code {
@@ -27,18 +28,17 @@ else
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();
-		if (Client is null)
-			return;
 
-		if(Categories==null || Categories.Count==0)
+		if (Categories == null || Categories.Count == 0)
 		{
 			posts = await BlogService.GetPosts(Client);
 		}
 		else
 		{
-			posts = await BlogService.GetPostsWithCategories(Client,Categories);
+			posts = await BlogService.GetPostsWithCategories(Client, Categories);
 		}
 
 		users = await BlogService.GetUsers(Client);
+		StateHasChanged();
 	}
 }
