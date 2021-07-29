@@ -9,8 +9,9 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/BlazingApple/Blog</RepositoryUrl>
     <PackageIcon>BlazingApple.png</PackageIcon>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>1.0.3 - Be error resilient.
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>1.0.4 - Render faster
+1.0.3 - Be error resilient.
 1.0.2 - Expose New BlogPost component to get an individual post.
 1.0.1 - Cache Blog Posts For Duration of the app lifecycle.</PackageReleaseNotes>
     <AssemblyVersion>1.0.3.0</AssemblyVersion>
