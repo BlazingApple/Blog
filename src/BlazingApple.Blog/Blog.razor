@@ -16,13 +16,29 @@ else
 	[Parameter]
 	public WordPressClient Client { get; set; }
 
+	/// <summary>
+	/// If passed, the component will only show posts from these categories.
+	/// </summary>
+	[Parameter]
+	public IList<int> Categories { get; set; }
+
 	private IEnumerable<Post> posts;
 	private IEnumerable<User> users;
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();
+		if (Client is null)
+			return;
 
-		posts = await BlogService.GetPosts(Client);
+		if(Categories==null || Categories.Count==0)
+		{
+			posts = await BlogService.GetPosts(Client);
+		}
+		else
+		{
+			posts = await BlogService.GetPostsWithCategories(Client,Categories);
+		}
+
 		users = await BlogService.GetUsers(Client);
 	}
 }

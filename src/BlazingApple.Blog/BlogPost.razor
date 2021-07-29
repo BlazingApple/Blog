@@ -1,0 +1,29 @@
+﻿@inject BlogService BlogService
+@if (post != null && users != null)
+{
+	<div class="ba-blog">
+		<RenderPost Post="@post" Author="@users.FirstOrDefault(user=>user.Id==post.Author)" />
+	</div>
+}
+else
+{
+	<Loading />
+}
+
+@code {
+	[Parameter]
+	public WordPressClient Client { get; set; }
+
+	[Parameter]
+	public int PostId { get; set; }
+
+	private Post post;
+	private IEnumerable<User> users;
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+
+		post = await BlogService.GetPost(Client, PostId);
+		users = await BlogService.GetUsers(Client);
+	}
+}

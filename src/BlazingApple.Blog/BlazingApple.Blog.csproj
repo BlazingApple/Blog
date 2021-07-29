@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -9,8 +9,12 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/BlazingApple/Blog</RepositoryUrl>
     <PackageIcon>BlazingApple.png</PackageIcon>
-    <Version>1.0.1</Version>
-    <PackageReleaseNotes>1.0.1 - Cache Blog Posts For Duration of the app lifecycle.</PackageReleaseNotes>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>1.0.3 - Be error resilient.
+1.0.2 - Expose New BlogPost component to get an individual post.
+1.0.1 - Cache Blog Posts For Duration of the app lifecycle.</PackageReleaseNotes>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,14 +25,13 @@
     <_ContentIncludedByDefault Remove="compilerconfig.json" />
   </ItemGroup>
 
-  
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
-    <PackageReference Include="WordPressPCL" Version="1.8.4" />
+    <PackageReference Include="WordPressPCL" Version="1.8.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,5 +41,4 @@
     </None>
     <None Include="compilerconfig.json" />
   </ItemGroup>
-
 </Project>
