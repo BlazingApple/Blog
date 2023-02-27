@@ -1,8 +1,8 @@
 ﻿
-@if (pages != null)
+@if (_pages != null)
 {
 	<ul>
-		@foreach (WordPressPCL.Models.Page currentPage in pages)
+		@foreach (WordPressPCL.Models.Page currentPage in _pages)
 		{
 			<li>
 				<a href="@string.Concat("/pages/", currentPage.Slug, "/",currentPage.Id)" title="@string.Concat("Published ", currentPage.Date)">@((MarkupString)currentPage.Title.Rendered)</a>
@@ -15,13 +15,15 @@ else
 	<Loading />
 }
 @code {
-	[Parameter]
-	public WordPressClient Client { get; set; }
+	[Inject]
+	public WordPressClient Client { get; set; } = null!;
 
-	IEnumerable<WordPressPCL.Models.Page> pages;
+	IEnumerable<WordPressPCL.Models.Page>? _pages;
+
+	/// <inheritdoc/>
 	protected override async Task OnParametersSetAsync()
 	{
 		await base.OnParametersSetAsync();
-		pages = await Client.Pages.GetAll();
+		_pages = await Client.Pages.GetAllAsync();
 	}
 }

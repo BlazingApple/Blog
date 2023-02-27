@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
+	<Nullable>enable</Nullable>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<ImplicitUsings>enable</ImplicitUsings>
     <Description>BlazingApple is a collection of business objects and corresponding components to speed application development. BlazingApple.Survey renders survey management components and components to take a survey as well as sending the objects to a server.</Description>
     <Authors>Taylor White</Authors>
     <Company>BlazingApple</Company>
@@ -9,13 +12,12 @@
     <RepositoryType>GitHub</RepositoryType>
     <RepositoryUrl>https://github.com/BlazingApple/Blog</RepositoryUrl>
     <PackageIcon>BlazingApple.png</PackageIcon>
-    <Version>1.0.4</Version>
-    <PackageReleaseNotes>1.0.4 - Render faster
-1.0.3 - Be error resilient.
-1.0.2 - Expose New BlogPost component to get an individual post.
-1.0.1 - Cache Blog Posts For Duration of the app lifecycle.</PackageReleaseNotes>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+    <Version>2.1.0</Version>
+    <PackageReleaseNotes>2.1.0 - Update to .Net 7.</PackageReleaseNotes>
+    <AssemblyVersion>2.1.0</AssemblyVersion>
+    <FileVersion>2.1.0</FileVersion>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,8 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
-    <PackageReference Include="WordPressPCL" Version="1.8.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,5 +42,9 @@
       <PackagePath></PackagePath>
     </None>
     <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazingApple.Blog.Services\BlazingApple.Blog.Services.csproj" />
   </ItemGroup>
 </Project>

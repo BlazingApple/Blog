@@ -1,4 +1,4 @@
-﻿@if (BlogPage != null)
+﻿@if (BlogPage != null && Author != null)
 {
 	<h3>@((MarkupString)BlogPage.Title.Rendered)</h3>
 	<AuthorDate Author="@Author" Date="@BlogPage.Date" />
@@ -10,11 +10,12 @@ else
 }
 
 @code {
+
 	/// <summary>
 	/// The WordPressPCL client to access the Wordpress server API.
 	/// </summary>
-	[Parameter]
-	public WordPressClient Client { get; set; }
+	[Inject]
+	public WordPressClient Client { get; set; } = null!;
 
 	/// <summary>
 	/// The Id representing the page to request.
@@ -26,26 +27,21 @@ else
 	/// The wordpress blog page. Pass this in if already retrieved.
 	/// </summary>
 	[Parameter]
-	public WordPressPCL.Models.Page BlogPage { get; set; }
+	public WordPressPCL.Models.Page? BlogPage { get; set; }
 
 	/// <summary>
 	/// The author of the page.
 	/// </summary>
 	[Parameter]
-	public User Author { get; set; }
+	public User? Author { get; set; }
 
+	/// <inheritdoc />
 	protected override async Task OnParametersSetAsync()
 	{
-		// If null on parameters set, retrieve it.
-		// If not null, assume it was passed.
 		if (BlogPage == null)
-		{
-			BlogPage = await Client.Pages.GetByID(id);
-		}
+			BlogPage = await Client.Pages.GetByIDAsync(id);
 
 		if (Author == null && BlogPage != null)
-		{
-			Author = await Client.Users.GetByID(BlogPage.Author);
-		}
+			Author = await Client.Users.GetByIDAsync(BlogPage.Author);
 	}
 }

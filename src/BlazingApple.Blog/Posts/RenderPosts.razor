@@ -15,13 +15,3 @@
 		}
 	}
 }
-@code {
-	[Parameter]
-	public IEnumerable<Post> Posts { get; set; }
-
-	/// <summary>
-	/// The users on the site, likely authors for a post.
-	/// </summary>
-	[Parameter]
-	public IEnumerable<User> Users { get; set; }
-}

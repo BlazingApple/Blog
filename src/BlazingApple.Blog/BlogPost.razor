@@ -1,8 +1,9 @@
-﻿@inject BlogService BlogService
-@if (post != null && users != null)
+﻿@using BlazingApple.Blog.Services
+@inject BlogService BlogService
+@if (_post != null && _users != null)
 {
 	<div class="ba-blog">
-		<RenderPost Post="@post" Author="@users.FirstOrDefault(user=>user.Id==post.Author)" />
+		<RenderPost Post="@_post" Author="@_users[_post.Author]" />
 	</div>
 }
 else
@@ -12,18 +13,15 @@ else
 
 @code {
 	[Parameter]
-	public WordPressClient Client { get; set; }
-
-	[Parameter]
 	public int PostId { get; set; }
 
-	private Post post;
-	private IEnumerable<User> users;
+	private Post? _post;
+	private IDictionary<int,User>? _users;
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();
 
-		post = await BlogService.GetPost(Client, PostId);
-		users = await BlogService.GetUsers(Client);
+		_post = await BlogService.GetPost(PostId);
+		_users = await BlogService.GetUsers();
 	}
 }

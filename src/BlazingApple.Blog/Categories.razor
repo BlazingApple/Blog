@@ -1,7 +1,7 @@
-﻿@if (categories != null)
+﻿@if (_categories != null)
 {
 	<ul>
-		@foreach (WordPressPCL.Models.Category category in categories)
+		@foreach (WordPressPCL.Models.Category category in _categories)
 		{
 
 			<li>
@@ -16,19 +16,15 @@ else
 	<Loading />
 }
 @code {
-	[Parameter]
-	public WordPressClient Client { get; set; }
+	[Inject]
+	private WordPressClient Client { get; set; } = null!;
 
-	IEnumerable<WordPressPCL.Models.Category> categories;
+	IEnumerable<WordPressPCL.Models.Category>? _categories;
 
 	protected override async Task OnParametersSetAsync()
 	{
 		await base.OnParametersSetAsync();
-		categories = await Client.Categories.GetAll();
+		
+		_categories = await Client.Categories.GetAllAsync();
 	}
-}
-
-
-@code {
-
 }

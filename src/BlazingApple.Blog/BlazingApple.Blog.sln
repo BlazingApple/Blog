@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingApple.Blog", "BlazingApple.Blog.csproj", "{725EEE8C-C17E-45A8-A778-B5FFBBBBEA43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingApple.Blog.Services", "..\BlazingApple.Blog.Services\BlazingApple.Blog.Services.csproj", "{9BD4C054-5E90-4331-AF1A-04C0C292C597}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{725EEE8C-C17E-45A8-A778-B5FFBBBBEA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725EEE8C-C17E-45A8-A778-B5FFBBBBEA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725EEE8C-C17E-45A8-A778-B5FFBBBBEA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD4C054-5E90-4331-AF1A-04C0C292C597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD4C054-5E90-4331-AF1A-04C0C292C597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD4C054-5E90-4331-AF1A-04C0C292C597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD4C054-5E90-4331-AF1A-04C0C292C597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
